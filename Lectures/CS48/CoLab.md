@@ -3,3 +3,13 @@
 ## [Colab Link](https://colab.research.google.com/drive/1bPk5pLOpbpgcBXECZ26Dw306Qiiwn8FA?usp=sharing)
 
 ## [Video Link](https://youtu.be/Cf8b57utGrg)
+
+# Binary Trees
+
+```
+    5
+   / \
+  12  32
+     /  \
+    8    4
+```
