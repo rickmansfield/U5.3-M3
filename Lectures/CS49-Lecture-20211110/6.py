@@ -37,39 +37,48 @@ recursive case...
 """
 
 from time import time
-
-
 class BinarySearchTree:
     def __init__(self, value=0, left=None, right=None):
         self.value = value
         self.left = left
         self.right = right
-
-
 r = BinarySearchTree(5)
 r.left = BinarySearchTree(12)
 r.right = BinarySearchTree(32)
 r.right.left = BinarySearchTree(8)
 r.right.right = BinarySearchTree(4)
 
-
 def maxDepthR(root):
-    if root is None:
-        return 0
-    else:
-        left_height = maxDepthR(root.left)
-        right_height = maxDepthR(root.right)
+  if root is None:
+    return 0
+  else:
+    left_height = maxDepthR(root.left)
+    right_height = maxDepthR(root.right)
 
-        return max(left_height, right_height) + 1
+    return max(left_height, right_height) + 1
 
 
 def maxDepthI(root):
-    pass
+  stack = []
+  max_depth = 0
 
+  if root is not None:
+    stack.append((1, root))
+  
+  while len(stack) > 0:
+    item = stack.pop()
+    current_depth = item[0]
+    root = item[1]
+    if root is not None:
+      max_depth = max(max_depth, current_depth)
+      stack.append((current_depth + 1, root.left))
+      stack.append((current_depth + 1, root.right))
+  
+  return max_depth
 
-start = time()  # now
+start = time() # now
 print(maxDepthR(r))
-end = time()  # now
+end = time() # now
 print("recursive time", end - start)
 
 start = time()
