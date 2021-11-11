@@ -39,10 +39,13 @@ r.right.right = minimumDepthBinaryTree(9)
 def minimumDepthBinaryTree(root):
     if root is None:
         return 0
-    if not root.left:
+    
+    if root.left is None:
         return minimumDepthBinaryTree(root.right) +1
+    
     if not root.right:
         return minimumDepthBinaryTree(root.left) +1
+    
     return min(minimumDepthBinaryTree(root.left), minimumDepthBinaryTree(root.right))+1
     
 print(minimumDepthBinaryTree(r))

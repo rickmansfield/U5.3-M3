@@ -31,8 +31,10 @@ r.right.right = BinarySearchTree(3)
 def balancedBinaryTree(root):
     if root is None:
         return True
+    
     if abs(depth(root.right)- depth(root.left)) >1:
         return False
+    
     return balancedBinaryTree(root.left) and balancedBinaryTree(root.right)
 
 def depth(root):
